@@ -6,7 +6,7 @@ pipeline{
 	 stages{
 	   stage('GetCode'){
 	     steps{
-		   git branch: 'main', url: 'https://github.com/Jaykona28/01-maven-web-app.git'
+		   git branch: 'main', url: 'https://github.com/Jaykona28/Practice.git'
 		  }
 		}
        stage('Build'){
@@ -22,12 +22,4 @@ pipeline{
 		 }
 		 } 
 		}
-	   }
-	   
-	   
-	   
-	   
-	   
-	   
-	  
-SonarQube Token: squ_cdd56b21388100229d9f05169a6db5ad25771b9c	  
+	   } 
