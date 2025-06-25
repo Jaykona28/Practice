@@ -1,0 +1,33 @@
+pipeline{
+   agent any
+   environment{
+      PATH="$PATH:/opt/maven/bin"
+	 }
+	 stages{
+	   stage('GetCode'){
+	     steps{
+		   git branch: 'main', url: 'https://github.com/Jaykona28/01-maven-web-app.git'
+		  }
+		}
+       stage('Build'){
+          steps{
+            sh 'mvn clean package'
+            }
+		   }
+	   stage('SonarQube analysis'){
+       steps{
+	   withSonarQubeEnv('Sonar-Server-9.9.8'){
+	      sh "mv clean verify sonar:sonar"
+	     }
+		 }
+		 } 
+		}
+	   }
+	   
+	   
+	   
+	   
+	   
+	   
+	  
+SonarQube Token: squ_cdd56b21388100229d9f05169a6db5ad25771b9c	  
